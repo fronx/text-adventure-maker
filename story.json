@@ -1,0 +1,21 @@
+{
+  "start": {
+    "text": "You are alone at home sitting in front of your computer. What do you do?",
+    "options": [
+      { "text": "Nothing",
+        "target": "start",
+        "transition": "You do nothing. For a while. Nothing really changes. Hm."
+      },
+      { "text": "Eat something",
+        "target": "start",
+        "transition": "Nom nom nom. Nom. Nom nom. Nom."
+      },
+      { "text": "Decide to program a text adventure!",
+        "target": "adventure"
+      }
+    ]
+  },
+  "adventure": {
+    "text": "Making text adventures is actually surprisingly easy. Sort of."
+  }
+}
