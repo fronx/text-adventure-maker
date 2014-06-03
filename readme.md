@@ -1,4 +1,12 @@
-# The simplest text adventure maker I could come up with
+# A simple text adventure maker
+
+Hey. So I had three thoughts:
+
+1. Wouldn't it be fun to make text adventures at CoderDojos?
+2. I'm just going to make a simple one myself.
+3. Actually, text adventures are not cool. You know what's cool? A text adventure maker.
+
+Maybe you want to use this repository as inspiration for your work with a kid who agrees to these three points.
 
 ## Full source code with comments
 
