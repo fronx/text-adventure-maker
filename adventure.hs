@@ -36,16 +36,13 @@ getNum = liftM read getLine
 
 getItemByNumber :: [a] -> IO a
 getItemByNumber xs = do
-  n <- getNumBetween 1 (length xs)
+  n <- getUntil getNum (\n -> n >= 1 && n <= (length xs))
   return $ xs!!(n - 1)
 
-getNumBetween :: Int -> Int -> IO Int
-getNumBetween a b | a <= b = do
-  n <- getNum
-  if n >= a && n <= b
-  then return n
-  else do putStrLn $ "Choose a number between " ++ show a ++ " and " ++ show b
-          getNumBetween a b
+getUntil :: IO a -> (a -> Bool) -> IO a
+getUntil get pred = do
+  x <- get
+  if pred x then return x else getUntil get pred
 
 showOption :: (Int, Option) -> String
 showOption (number, Option text _ _) = show number ++ ") " ++ text
