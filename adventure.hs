@@ -31,13 +31,12 @@ printMaybe :: Maybe String -> IO ()
 printMaybe (Just s) = putStrLn s
 printMaybe _ = return ()
 
-getNum :: IO Int
-getNum = liftM read getLine
-
 getItemByNumber :: [a] -> IO a
 getItemByNumber xs = do
-  n <- getUntil getNum (\n -> n >= 1 && n <= (length xs))
+  n <- getUntil getNum withinBounds
   return $ xs!!(n - 1)
+  where getNum = liftM read getLine
+        withinBounds n = n >= 1 && n <= (length xs)
 
 getUntil :: IO a -> (a -> Bool) -> IO a
 getUntil get pred = do
